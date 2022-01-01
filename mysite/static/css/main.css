@@ -1,0 +1,14 @@
+.form-test{
+    width: 100%;
+}
+.form-test input{
+    width: 100%;
+}
+.form-test .add-value{
+    width: 100px;
+    margin-top: 2em;
+}
+
+.form-test .submit{
+margin-top: 2em;
+}

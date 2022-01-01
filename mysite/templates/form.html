@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row form-test">
+    <div class="col-8 m-auto">
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        <div class="w-100 mt-5"><h2>Ingresar Empresa</h2> </div>
+        <form id="form-create-post" method="POST" action="/create/">
+
+            {% csrf_token %}
+            <input type="hidden" name="values" id="id_values">
+            <label>Nombre</label>
+            {{ form.name }}
+            <label>Descripción</label>
+            {{ form.description }}
+            <label>Symbols</label>
+            {{ form.symbol }}
+
+            <label>Agregar Valores</label>
+            <input value="+" type="button" class="add-value" id="btn-add-value">
+
+            <div class="w-100" id="container-values">
+            
+            </div>
+
+            <input type="submit" value="Generar" class="submit" id="submit_click">
+
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

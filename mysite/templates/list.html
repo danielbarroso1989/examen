@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row form-test">
+    <div class="col-8 m-auto">
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Compania</th>
+                <th scope="col">Detalle</th>
+        
+              </tr>
+            </thead>
+            <tbody>
+                {% for company in page_obj %}
+              <tr>
+                <th scope="row">{{company.name}}</th>
+                <th scope="row">{{company.name}}</th>
+                <td>
+                    <button type="button" class="btn btn-primary click-detail-graph" data-toggle="modal" data-target="#exampleModal" data-vals="{{company.values}}">
+                        Detalle
+                      </button>
+                </td>
+             
+              </tr>
+              {% endfor %}
+             
+            </tbody>
+          </table>
+     
+       
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detalle</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="pagination">
+    <span class="step-links">
+        Total = {{ count_elements }} --
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+  
+    </div>
+</div>
+
+
+
+{% endblock %}
