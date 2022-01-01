@@ -17,22 +17,8 @@ def search_symbol(symbol):
        
     return False
 
-def equals_symbol_company(name_array,name):
-    try:
-        
-        name_array=name_array.upper()
-        
-        name=name.upper() 
 
-        if name_array==name:
-            return True
-
-
-    except Exception as e:
-        print("Error validate symbol name:",e)
-    
-    return False
-
+#todo: function for validate, clean data and create company
 def validatedata(data):
 
     try:
@@ -49,13 +35,12 @@ def validatedata(data):
 
             if result_symbol:
 
-                if equals_symbol_company(result_symbol["name"],name):
+             
+                Company_create = Company.objects.create(name=name,description=description,symbol=symbol,values=values)
 
-                        Company_create = Company.objects.create(name=name,description=description,symbol=symbol,values=values)
+                return "OK"
 
-                        return "OK"
-
-                return "The company name does not match the symbol"
+           
 
             return " symbol bursatil incorrect"
     

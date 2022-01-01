@@ -19,7 +19,7 @@ from django.urls import path
 from rest_framework import routers, serializers, viewsets
 
 from mysite.api.views import GetTest, CreateCompany
-from company.views import create_form, list_form
+from company.views import home,create_form, list_form
 
 from django.contrib.auth.models import User
 
@@ -38,6 +38,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
+    path('',home, name='home'),
     path('admin/', admin.site.urls),
     path('test/', GetTest.as_view(), name='GetTest'),
     path('create/',CreateCompany.as_view(),name="CreateCompany"),
