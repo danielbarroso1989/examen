@@ -1,5 +1,5 @@
 from django import forms
-
+#todo: form create company
 class Companyform(forms.Form):
     name = forms.CharField(label='name', max_length=50, required=True,)
     description = forms.CharField(label='description', max_length=100, required=True,)

@@ -17,7 +17,7 @@
                 {% for company in page_obj %}
               <tr>
                 <th scope="row">{{company.name}}</th>
-                <th scope="row">{{company.name}}</th>
+                <th scope="row">{{company.description}}</th>
                 <td>
                     <button type="button" class="btn btn-primary click-detail-graph" data-toggle="modal" data-target="#exampleModal" data-vals="{{company.values}}">
                         Detalle

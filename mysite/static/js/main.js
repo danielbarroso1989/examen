@@ -10,6 +10,7 @@ let click_detail_graph = $(".click-detail-graph")
 let new_chart = false
 let myChart
 
+//todo: generate attrs for chart
 function  array_chart(params) {
 
     const labels =params;
@@ -33,16 +34,18 @@ function  array_chart(params) {
       return config
     
 }
-
+//todo:desencode base64 utf-8
 function desencode_base_64(vals){
     
     return decodeURIComponent(escape(window.atob( vals )));
 }
 
+//todo: remove btn
 function remove_btn(event){
     div_before = $(event).parents('.container-btn-more')
     div_before.remove()
 }
+//todo: validate name if not null and length <51
 function validate_name(){
 
 
@@ -52,16 +55,19 @@ function validate_name(){
 
 
 }
+//todo: validate description if not null and length <100
 function validate_description(){
 
     if(validate_if_null(id_description.val())&& id_description.val().length<100)return true
 
 }
+//todo: validate symbols if not null and length <11
 function validate_symbols(){
 
     if(validate_if_null(id_symbol.val())&& id_symbol.val().length<11)return true
 
 }
+//todo: validate values and generate base64
 function validate_value(){
 
     data = container_add_value.find('input:not([type=file]):not([name^=extra]):not([type=checkbox]), select, textarea')
@@ -82,6 +88,7 @@ function validate_value(){
    
     
 }
+//todo: utils validate null
 function validate_if_null(element){
 
     if ( element != "") return true
@@ -89,12 +96,12 @@ function validate_if_null(element){
     return false
 
 }
-
+//todo: add dom
 function input_dom(){
     container_add_value.append("<div class='row container-btn-more'><div class='col-7'><input type='number' class='value-input'></div><div class='col-2'><button id='remove-value' onclick='remove_btn(this)'>Remove</button></div></div>")
 
 }
-
+//todo:get values 
 function  list_values(elements) {
 
     var list_value=""
@@ -109,7 +116,7 @@ function  list_values(elements) {
 
   }
 
-
+//todo: add new input for values
 btn_add_value.click(function() {
 
     _input = input_dom()
@@ -128,7 +135,7 @@ btn_add_value.click(function() {
     
 });
 
-
+//todo: create graph
 click_detail_graph.click(function(){
 
     if(new_chart){
